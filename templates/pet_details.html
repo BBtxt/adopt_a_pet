@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<div>
+  <h1 class="text-3xl font-bold">{{ pet.name }}</h1>
+  <img
+    src="{{ pet.photo_url }}"
+    alt="{{ pet.name }}"
+    class="w-40 h-40 object-cover"
+  />
+  <p>Species: {{ pet.species }}</p>
+  <p>Age: {{ pet.age }}</p>
+    <p>Notes:</p>
+  <p>{{ pet.notes }}</p>
+  <p>Is available {{ pet.available }}</p>
+  <a href="/edit/{{ pet.id }}">Edit</a>
+  <form action="/delete/{{pet.id}}" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
+</div>
+{% endblock %}
+```
